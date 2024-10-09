@@ -1,0 +1,45 @@
+.done
+{
+    margin-left:100px;
+    width:33%;
+    margin-top:4px;
+}
+span
+{
+  color:red;
+  margin-left:0px;
+}
+textarea
+{
+    margin-top: 20px;
+}
+.submit
+{
+    background-color: orangered;
+    margin-left: 70px;
+    width:250px;
+    margin-left:20px;
+}
+tr
+{
+    border: 2px solid black;
+    column-span:3;
+    text-align:left;
+    height:62px;
+    width:200px;
+}
+td
+{
+    width:200px;
+}
+table
+{
+    border-collapse: collapse;
+    width:110%;
+}
+.div1
+{
+    background-color: black;
+    color:azure;
+    padding: 20px 20px 20px 20px;
+}

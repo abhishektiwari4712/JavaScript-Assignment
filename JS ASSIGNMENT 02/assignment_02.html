@@ -1,0 +1,296 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div1"><h1>Library System</h1></div>
+  <div style="display: flex;"><div class="done">
+    <table>
+        <from>
+         <tr>
+            <td>First Name:</td>
+            <td><input type="text" id="fname"><br>
+            <span id="f"></span></td>
+            </tr>
+        <tr>
+            <td>Last Name:</td>
+           <td><input type="text" id="lname"><br>
+            <span id="l"></span></td>
+        </tr>
+
+
+           <tr>
+            <td>Email:</td>
+            <td><input type="text" id="Email" placeholder="azx@gmail.com"><br>
+            <span id="em"></span></td>
+        </tr>
+
+           <tr>
+            <td>Phone Number:</td>
+           <td><input type="number" id="pnumber" placeholder="+91-00000-00000"><br>
+            <span id="pn"></span></td>
+        </tr>
+
+           <tr>
+           <td>Address:</td>
+            <td><textarea type="text" id="address"></textarea><br>
+            <span id="adrs"></span></td>
+        </tr>
+
+            <tr>
+        <td>course:</td>
+         <td> <select name="course" id="course">
+            <option  value="12th">12th</option>
+            <option  value="10th">10th</option></select><br>
+            <span id="crse"></span></td>
+        </tr>
+
+           <tr>
+            <td>Time period:</td>
+           <td><select id="tperiod">
+            <option  value="1day">1 day</option>
+            <option  value="2day">2 day</option>
+            <option  value="3day">3 day</option>
+            <option  value="4day">4 day</option>
+            </select></td><br><br></tr>
+
+          <tr>
+          <td>Subject:</td>
+           <td>
+            <input type="checkbox" id="subj" value="Hindi" onclick="checkBox(event)">Hindi
+            <input type="checkbox" id="subj" value="Maths" onclick="checkBox(event)">Maths
+            <input type="checkbox" id="subj" value="SST"   onclick="checkBox(event)">SST
+            <input type="checkbox" id="subj" value="Science" onclick="checkBox(event)">Science<br>
+            <span id="sub"></span></td>
+           </tr>
+
+            <tr>
+            <td>Submission date:</td>
+            <td><input type="date" id="date" placeholder="dd/mm/yyyy"><br>
+            <span id="dte"></span></td>
+            </tr>
+            <tr><td></td>
+                <td>
+            <input type="button" value="submit" class="submit" onclick="fun()"></td></tr>
+          
+        </from>
+        </table>
+        </div>
+        <script>
+                const arr=[]
+
+            function checkBox(val)
+            {
+               // console.log(val.target.checked);
+                if(val.target.checked)
+                {
+                    arr.push(val.target.value)
+
+                }
+                else{
+                    arr.pop()
+                }
+               // console.log(arr)
+
+
+            }
+            function fun()
+            {
+            let x=document.getElementById("fname").value;
+            let y=x.length;
+            let ln=document.getElementById("lname").value;
+            let lnl=ln.length;
+            let p=document.getElementById("pnumber").value;
+            let pl=p.length;
+            let ad=document.getElementById("address").value;
+            let adl=ad.length;
+            let d= document.getElementById("date").value;
+            let date = new Date(d)
+            let mnt=date.getMonth()+1
+            
+            let myDate=date.getDate()+'/'+mnt+'/'+date.getFullYear()
+
+            var mail=document.getElementById("Email").value;
+            var ml=mail.length;
+            let text="@";
+            var regx = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/
+            var fcourse1=document.getElementById("course").value;
+            var fsubject=document.getElementById("subj").value;
+
+
+            //for firstname
+            if(x=="")
+            {
+              document.getElementById("f").innerHTML="Name can't be empty";
+            }
+            if(y>=1&&y<3)
+            {
+                
+                document.getElementById("f").innerHTML="Name must be greater then 3 characters";
+            }
+            if(y>=3)
+           {
+            document.getElementById("f").innerHTML="";
+           }
+            
+          //for last name
+            if(lnl=="")
+            {
+              document.getElementById("l").innerHTML=" Last Name can't be empty";
+            }
+            if(lnl>=1&&lnl<3)
+            {
+                document.getElementById("l").innerHTML="Last Name must be greater then 3 characters";
+            }
+           if(lnl>=3)
+           {
+            document.getElementById("l").innerHTML="";
+           }
+        //for E-mail
+        if(mail==""){
+           document.getElementById("em").innerHTML="please enter email";
+          }if(ml>1&&mail.match(/@/)!=text){
+           document.getElementById("em").innerHTML="Please enter valid email";
+          }if(mail.match(/@/)==text){
+            document.getElementById("em").innerHTML="";
+          }
+
+           //for phone number
+           
+           if(pl>=12)
+           {
+            document.getElementById("pn").innerHTML="you have enter the greater than 10 digit";
+           }
+           if(pl>1&&pl<12)
+           {
+            document.getElementById("pn").innerHTML="you have entered less than 10 digits";
+           }
+           if(pl==12){
+            document.getElementById("pn").innerHTML="";
+           }
+           else
+           {
+            document.getElementById("pn").innerHTML="phone number format should be +91-xxxxxx-xxxxx";
+           }
+          
+
+
+
+           //for address
+           if(adl<5||ad=="")
+           {
+            document.getElementById("adrs").innerHTML="address should be 5 to 500 chracter";
+           }else{
+            document.getElementById("adrs").innerHTML="";
+           }
+           //for date
+           if(d=="")
+           {
+            document.getElementById("dte").innerHTML="date format should be dd-mm-yyyy";
+           }else{
+            document.getElementById("dte").innerHTML="";
+           }
+
+          //for subject
+           if(arr.length<=1){
+            document.getElementById("sub").innerHTML="Please select alleast 2 subjects";
+           }
+           else{
+            document.getElementById("sub").innerHTML="";
+           }
+           if(x && ln && p && ad && d && mail && fcourse1 && arr.length>=2)
+           {
+
+            document.getElementById("ff").innerHTML=x;
+            document.getElementById("f").innerHTML="";
+
+            document.getElementById("lnme").innerHTML=ln;
+            document.getElementById("l").innerHTML="";
+
+            document.getElementById("fn").innerHTML=p;
+            //document.getElementById("pn").innerHTML="";
+
+            document.getElementById("fa").innerHTML=ad;
+            document.getElementById("adrs").innerHTML="";
+
+            document.getElementById("fc").innerHTML=fcourse1;
+            document.getElementById("crse").innerHTML="";
+
+            document.getElementById("fs").innerHTML=arr;
+            document.getElementById("sub").innerHTML="";
+
+            document.getElementById("fd").innerHTML=myDate;
+            document.getElementById("dte").innerHTML="";
+
+            document.getElementById("fe").innerHTML=mail;
+          
+           }
+
+         }
+        </script> 
+        <div  style="padding: 0px; margin-top:40px; margin-left:200px;">
+            <table>
+                <th>Submitted information</th>
+                <tr>
+                    <td>
+                    first name:
+                    </td>
+                    <td><p id="ff"></p></td>
+                </tr>
+
+                <tr>
+                    <td>
+                     Last name:
+                     </td>
+                     <td><p id="lnme"></p></td>
+                </tr>
+
+                <tr>
+                    <td>
+                     Phone number:
+                    </td>
+                    <td><p id="fn"></p></td>
+                </tr>
+
+                <tr>
+                    <td>
+                     E-mail:
+                 </td>
+                 <td><p id="fe"></p></td>
+                </tr>
+
+                <tr>
+                    <td>
+                    Address:
+                    </td>
+                    <td><p id="fa"></p></td>
+                </tr>
+                 
+                <tr>
+                    <td>
+                    course:
+                    </td>
+                    <td><p id="fc"></p></td>
+                </tr>
+
+                
+                <tr>
+                    <td>
+                     selected subject:
+                   </td>
+                   <td><p id="fs"></p></td>
+               </tr>
+
+               <tr>
+                <td>
+                submission Date:
+                </td>
+                <td><p id="fd"></p></td>
+        </tr>
+        </div>
+    </div>
+    </body>
+</html>
