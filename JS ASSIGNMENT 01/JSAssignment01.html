@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Assignment 1</title>
+    <link rel="stylesheet" href="./JS.css">
+   
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="inputcontainer">
+            <label for="fname"> First Name </label> <br>
+            <input type="text" name="fname" id="fname" placeholder="John" class="int">
+            <br>
+            <label for="lname"> Last Name </label> <br>
+            <input type="text" name="lname" id="lname" placeholder="Doe" class="int">
+            <br>
+            <button id="submitBtn">SUBMIT</button>
+            <br> <br>
+            <label for="1st num"> Enter 1st Number:</label>
+            <input type="number" name="1st num" id="1stnum" placeholder="14">
+            <br>
+            <label for="2nd num "> Enter 2nd Number: </label>
+            <input type="number" name="2nd num" id="2ndnum" placeholder="7">
+
+            <div class="calculate">
+                <button id="addBtn" onclick="addnum()">ADD</button>
+                <button id="subtractBtn"onclick="subnum()">SUBTRACT</button> <br>
+                <button  id="multiplyBtn" onclick="mulnum()" >MULTIPLY</button>
+                <button id="divideBtn"onclick="divnum()">DIVIDE</button><br>
+            </div>
+        </div>
+        <div class="outputcontainer">
+            <h6 style="font-size: 20px;">OUTPUT</h6>
+            <p class="fn">Full Name: <span id="fullName"></span></p>
+            <p class="fn">Result: <span id="result"></span></p>
+        </div>
+    </div>
+
+    <script src="./assignment.js"></script>
+</body>
+
+</html>
